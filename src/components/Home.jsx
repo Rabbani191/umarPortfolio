@@ -45,9 +45,10 @@ const Home = () => {
   </span>
 
   <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-    <span className="block">Crafting Dynamic Applications.</span>
-    <span className="block">Innovating User Experiences.</span>
-  </p>
+  <span className="block">Full Stack Dev</span>
+  <span className="block ">Node.js, Angular, React & AWS</span>
+  <span className="block">Fintech, WMS, E-com, LMS, Ticketing, Health</span>
+</p>
 </div>
 
 
@@ -86,7 +87,7 @@ const Home = () => {
         <div>
           <img
             className="absolute bottom-0 ml-[50vw] 
-            lg:ml-[75vw] md:ml-[60vw] xmd:ml-[60vw] 2xl:ml-[83vw]
+            lg:ml-[65vw] md:ml-[48vw] xmd:ml-[48vw] 2xl:ml-[71vw]
             sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"
             src={shaq}
             alt="shaquille"
