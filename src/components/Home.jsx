@@ -47,7 +47,7 @@ const Home = () => {
   <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
   <span className="block">Full Stack Dev</span>
   <span className="block ">Node.js, Angular, React & AWS</span>
-  <span className="block">Fintech, WMS, E-com, LMS, Ticketing, Health</span>
+  <span className="block">Fintech, WMS, E-com, LMS, Health</span>
 </p>
 </div>
 

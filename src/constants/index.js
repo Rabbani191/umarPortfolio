@@ -76,13 +76,14 @@ const services = [
 ];
 
 const technologies = [
+  
   {
-    name: 'HTML 5',
-    icon: html,
+    name: 'Node JS',
+    icon: nodejs,
   },
   {
-    name: 'CSS 3',
-    icon: css,
+    name: 'React JS',
+    icon: reactjs,
   },
   {
     name: 'JavaScript',
@@ -93,10 +94,6 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: 'React JS',
-    icon: reactjs,
-  },
-  {
     name: 'Redux Toolkit',
     icon: redux,
   },
@@ -105,9 +102,14 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: 'Node JS',
-    icon: nodejs,
+    name: 'HTML 5',
+    icon: html,
   },
+  {
+    name: 'CSS 3',
+    icon: css,
+  },
+  
   // {
   //   name: 'Rails',
   //   icon: rubyrails,
@@ -128,40 +130,40 @@ const technologies = [
     name: 'figma',
     icon: figma,
   },
-  {
-    name: 'docker',
-    icon: docker,
-  },
+  // {
+  //   name: 'docker',
+  //   icon: docker,
+  // },
 ];
 
 const experiences = [
   {
-    title: 'Front-End Developer',
-    company_name: 'Cover Hunt',
+    title: 'Jr Software Developer',
+    company_name: 'HT Decisions',
     icon: coverhunt,
     iconBg: '#333333',
-    date: 'Aug 2021 - Feb 2022',
-  },
-  {
-    title: 'Mentor (Volunteer)',
-    company_name: 'Microverse',
-    icon: microverse,
-    iconBg: '#333333',
-    date: 'Mar 2022 - May 2022',
-  },
-  {
-    title: 'Junior Software Engineer',
-    company_name: 'Kelhel',
-    icon: kelhel,
-    iconBg: '#333333',
-    date: 'May 2022 - Oct 2022',
+    date: 'APR 2017 - MAR-2018',
   },
   {
     title: 'Full Stack Developer',
-    company_name: 'Diversity Cyber Council',
+    company_name: 'Invite Manager',
+    icon: microverse,
+    iconBg: '#333333',
+    date: 'JUL 2019 - MAY 2023',
+  },
+  {
+    title: 'Software Engineer ',
+    company_name: 'Baskt',
+    icon: kelhel,
+    iconBg: '#333333',
+    date: 'JUL 2019 - MAY 2023',
+  },
+  {
+    title: 'Full Stack Developer',
+    company_name: 'SSBCIVI',
     icon: dcc,
     iconBg: '#333333',
-    date: 'Sep 2022 - Present',
+    date: 'JUNE 2023 - PRESENT',
   },
 ];
 
