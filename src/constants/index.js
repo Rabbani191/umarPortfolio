@@ -155,14 +155,14 @@ const experiences = [
     date: 'APR 2017 - MAR-2018',
   },
   {
-    title: 'Full Stack Developer',
+    title: 'Software Engineer ',
     company_name: 'Invite Manager',
     icon: microverse,
     iconBg: '#333333',
-    date: 'JUL 2019 - MAY 2023',
+    date: 'APR 2018 - JULY 2019',
   },
   {
-    title: 'Software Engineer ',
+    title: 'Development Manager',
     company_name: 'Baskt',
     icon: kelhel,
     iconBg: '#333333',
@@ -180,8 +180,8 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
-    name: 'KomiKult',
-    description: 'A comic characters list app that displays Marvel characters.',
+    name: 'SSBCI.VI',
+    description: 'A lending platform designed to support business owners with flexible financing options',
     tags: [
       {
         name: 'react',
@@ -197,36 +197,12 @@ const projects = [
       },
     ],
     image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    demo: 'https://www.ssbci.vi/',
   },
   {
     id: 'project-2',
-    name: 'Leaderboard',
-    description:
-      'A leaderboard list app that displays scores submitted by different players.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'restapi',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'scss',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: leaderboard,
-    repo: 'https://github.com/shaqdeff/Leaderboard',
-    demo: 'https://shaqdeff.github.io/Leaderboard/',
-  },
-  {
-    id: 'project-3',
-    name: 'Math Magicians',
-    description: 'This is a single-page calculator app built with React',
+    name: 'Bmorebunks',
+    description: 'Bmorebunks is an innovative, fully automated hostel offering keyless entry and easy online booking, providing guests with affordable, hassle-free stays in comfortable rooms',
     tags: [
       {
         name: 'nextjs',
@@ -242,13 +218,34 @@ const projects = [
       },
     ],
     image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
+    demo: 'https://bmorebunks.com/',
+  },
+  {
+    id: 'project-3',
+    name: 'Monza Plates',
+    description:
+      'Monza Number Plate is the UK premier provider of high-quality, custom vehicle registration plates, offering everything from standard options to personalized, standout designs',
+    tags: [
+      {
+        name: 'react',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'restapi',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'scss',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: leaderboard,
+    demo: 'https://www.monzaplates.com/',
   },
   {
     id: 'project-4',
-    name: 'Movie Metro',
-    description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
+    name: 'Baskt',
+    description: `Baskt is an online grocery store that delivers affordable, discounted products using optimized routing to minimize costs.`,
     tags: [
       {
         name: 'nextjs',
@@ -264,31 +261,8 @@ const projects = [
       },
     ],
     image: movie,
-    repo: 'https://github.com/shaqdeff/Movie-Metro',
-    demo: 'https://movie-metro.netlify.app/',
-  },
-  {
-    id: 'project-5',
-    name: 'Nyeusi Fest Site',
-    description:
-      'This is a demo concert website for a music festival called Nyeusi.',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: nyeusi,
-    repo: 'https://github.com/shaqdeff/Nyeusi-Fest-Site',
-    demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
+
+    demo: 'https://baskt.com/',
   },
 ];
 
