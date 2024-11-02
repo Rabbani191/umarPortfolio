@@ -1,7 +1,7 @@
 import {
   frontend,
   backend,
-  ux,
+  aws,
   prototyping,
   javascript,
   typescript,
@@ -27,6 +27,11 @@ import {
   dcc,
   kelhel,
   microverse,
+  angular, 
+  mongodb, 
+  nestjs, 
+  awslogo, 
+
 } from '../assets';
 
 export const navLinks = [
@@ -66,8 +71,8 @@ const services = [
     icon: backend,
   },
   {
-    title: 'UI/UX Design',
-    icon: ux,
+    title: 'AWS Cloud',
+    icon: aws,
   },
   {
     title: 'Software Prototyping',
@@ -76,38 +81,43 @@ const services = [
 ];
 
 const technologies = [
+
+  {
+    name: 'JavaScript',
+    icon: javascript,
+  },
+  {
+    name: 'Angular js',
+    icon: angular,
+  },
   
   {
     name: 'Node JS',
     icon: nodejs,
   },
   {
-    name: 'React JS',
-    icon: reactjs,
+    name: 'AWS',
+    icon: awslogo,
   },
+
   {
-    name: 'JavaScript',
-    icon: javascript,
+    name: 'Nest js',
+    icon: nestjs,
   },
-  {
-    name: 'TypeScript',
-    icon: typescript,
-  },
+  
+  
   {
     name: 'Redux Toolkit',
     icon: redux,
   },
-  {
-    name: 'Tailwind CSS',
-    icon: tailwind,
-  },
+  
   {
     name: 'HTML 5',
     icon: html,
   },
   {
-    name: 'CSS 3',
-    icon: css,
+    name: 'Mongo DB',
+    icon: mongodb,
   },
   
   // {

@@ -9,7 +9,7 @@ import logotext from './logo/logo-text-black.png';
 import shaq from './personal/shaq.png';
 
 import backend from './icons/backend.png';
-import ux from './icons/ux.png';
+import aws from './icons/aws.png';
 import frontend from './icons/frontend.png';
 import prototyping from './icons/prototyping.png';
 import github from './icons/github.png';
@@ -30,6 +30,10 @@ import git from './tech/git.png';
 import html from './tech/html.png';
 import javascript from './tech/javascript.png';
 import nodejs from './tech/nodejs.png';
+import mongodb from './tech/mongodb.png';
+import angular from './tech/angular.png';
+import awslogo from './tech/aws.png';
+import nestjs from './tech/nestjs.png';
 import reactjs from './tech/reactjs.png';
 import redux from './tech/redux.png';
 import tailwind from './tech/tailwind.png';
@@ -59,7 +63,7 @@ export {
   logotext,
   shaq,
   backend,
-  ux,
+  aws,
   frontend,
   prototyping,
   github,
@@ -96,4 +100,9 @@ export {
   dcc,
   kelhel,
   microverse,
+ mongodb, 
+ angular ,
+ awslogo ,
+ nestjs ,
+
 };

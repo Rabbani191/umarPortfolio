@@ -14,42 +14,56 @@ const Contact = () => {
     message: '',
   });
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setForm({ ...form, [name]: value });
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!form.name) newErrors.name = 'Name is required.';
+    if (!form.email) {
+      newErrors.email = 'Email is required.';
+    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+      newErrors.email = 'Email address is invalid.';
+    }
+    if (!form.message) newErrors.message = 'Message is required.';
+
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrors({}); // Reset errors
 
-    // sign up on emailjs.com (select the gmail service and connect your account).
-    //click on create a new template then click on save.
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setLoading(false);
+      setErrors(validationErrors);
+      return;
+    }
+
     emailjs
       .send(
-        'serviceID', // paste your ServiceID here (you'll get one when your service is created).
-        'templateID', // paste your TemplateID here (you'll find it under email templates).
+        'service_ypsntbo',
+        'template_fr9f2lc',
         {
           from_name: form.name,
-          to_name: 'YourName', // put your name here.
+          to_name: 'Umar Rabbani',
           from_email: form.email,
-          to_email: 'youremail@gmail.com', //put your email here.
+          to_email: 'umar.rabbani.191@gmail.com',
           message: form.message,
         },
-        'yourpublickey' //paste your Public Key here. You'll get it in your profile section.
+        'A6A8_CR7a7kgS7Hlm'
       )
       .then(
         () => {
           setLoading(false);
           alert('Thank you. I will get back to you as soon as possible.');
-
-          setForm({
-            name: '',
-            email: '',
-            message: '',
-          });
+          setForm({ name: '', email: '', message: '' });
         },
         (error) => {
           setLoading(false);
@@ -61,8 +75,7 @@ const Contact = () => {
 
   return (
     <div
-      className="-mt-[8rem] xl:flex-row flex-col-reverse 
-      flex gap-10 overflow-hidden">
+      className="-mt-[8rem] xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
         className="flex-[0.75] bg-jet p-8 rounded-2xl">
@@ -81,11 +94,9 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium"
+              className="bg-eerieBlack py-4 px-6 placeholder:text-taupe text-timberWolf rounded-lg outline-none border-none font-medium"
             />
+            {errors.name && <span className="text-red-500">{errors.name}</span>}
           </label>
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">Your Email</span>
@@ -95,42 +106,28 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium"
+              className="bg-eerieBlack py-4 px-6 placeholder:text-taupe text-timberWolf rounded-lg outline-none border-none font-medium"
             />
+            {errors.email && <span className="text-red-500">{errors.email}</span>}
           </label>
           <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">
-              Your Message
-            </span>
+            <span className="text-timberWolf font-medium mb-4">Your Message</span>
             <textarea
               rows="7"
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What's your message?"
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium resize-none"
+              className="bg-eerieBlack py-4 px-6 placeholder:text-taupe text-timberWolf rounded-lg outline-none border-none font-medium resize-none"
             />
+            {errors.message && <span className="text-red-500">{errors.message}</span>}
           </label>
 
           <button
             type="submit"
-            className="live-demo flex justify-center sm:gap-4 
-            gap-3 sm:text-[20px] text-[16px] text-timberWolf 
-            font-bold font-beckman items-center py-5
-            whitespace-nowrap sm:w-[130px] sm:h-[50px] 
-            w-[100px] h-[45px] rounded-[10px] bg-night 
-            hover:bg-battleGray hover:text-eerieBlack 
-            transition duration-[0.2s] ease-in-out"
+            className="live-demo flex justify-center sm:gap-4 gap-3 sm:text-[20px] text-[16px] text-timberWolf font-bold font-beckman items-center py-5 whitespace-nowrap sm:w-[130px] sm:h-[50px] w-[100px] h-[45px] rounded-[10px] bg-night hover:bg-battleGray hover:text-eerieBlack transition duration-[0.2s] ease-in-out"
             onMouseOver={() => {
-              document
-                .querySelector('.contact-btn')
-                .setAttribute('src', sendHover);
+              document.querySelector('.contact-btn').setAttribute('src', sendHover);
             }}
             onMouseOut={() => {
               document.querySelector('.contact-btn').setAttribute('src', send);
@@ -139,8 +136,7 @@ const Contact = () => {
             <img
               src={send}
               alt="send"
-              className="contact-btn sm:w-[26px] sm:h-[26px] 
-              w-[23px] h-[23px] object-contain"
+              className="contact-btn sm:w-[26px] sm:h-[26px] w-[23px] h-[23px] object-contain"
             />
           </button>
         </form>
