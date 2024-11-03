@@ -7,6 +7,7 @@ import {
   Navbar,
   Tech,
   Projects,
+  Footer,
 } from './components';
 
 const App = () => {
@@ -51,6 +52,9 @@ const App = () => {
           <Route path="/experience" element={<div className="pt-6 experience-section bg-experience bg-cover bg-center bg-no-repeat rounded-tl-[150px] rounded-br-[150px]"><Experience /></div>} />
           <Route path="/contact" element={<div className="contact-section relative z-0 pt-6"><Contact /></div>} />
         </Routes>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </Router>
   );
