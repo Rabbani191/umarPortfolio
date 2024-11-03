@@ -178,6 +178,7 @@ const experiences = [
 ];
 
 const projects = [
+  
   {
     id: 'project-1',
     name: 'SSBCI.VI',
@@ -200,27 +201,6 @@ const projects = [
     demo: 'https://www.ssbci.vi/',
   },
   {
-    id: 'project-2',
-    name: 'Bmorebunks',
-    description: 'Bmorebunks is an innovative, fully automated hostel offering keyless entry and easy online booking, providing guests with affordable, hassle-free stays in comfortable rooms',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: math,
-    demo: 'https://bmorebunks.com/',
-  },
-  {
     id: 'project-3',
     name: 'Monza Plates',
     description:
@@ -241,6 +221,28 @@ const projects = [
     ],
     image: leaderboard,
     demo: 'https://www.monzaplates.com/',
+  },
+  
+  {
+    id: 'project-2',
+    name: 'Bmorebunks',
+    description: 'Bmorebunks is an innovative, fully automated hostel offering keyless entry and easy online booking, providing guests with affordable, hassle-free stays in comfortable rooms',
+    tags: [
+      {
+        name: 'nextjs',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'supabase',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'css',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: math,
+    demo: 'https://bmorebunks.com/',
   },
   {
     id: 'project-4',

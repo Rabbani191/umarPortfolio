@@ -77,13 +77,21 @@ const Navbar = () => {
     setActive('about'); // Change to 'about' since home is not used
     window.scrollTo(0, 0);
     window.history.replaceState(null, '', '/'); // Update URL for home
-  }}>
-  <img
-    src={logo} // your logo comes here
-    alt="logo"
-    className="w-[120px] h-[120px] object-contain" // Increase to larger size
-  />
+  }}
+>
+  <div className="flex items-center space-x-3"> {/* Container for logo and heading */}
+    <img
+      src={logo} // your logo comes here
+      alt="logo"
+      className="w-[120px] h-[80px] object-contain" 
+    />
+    <h1 className="font-black text-battleGray lg:text-[50px] sm:text-[30px] xs:text-[20px] text-[20px] lg:leading-none leading-none">RABBANI</h1> {/* Style the text as a heading */}
+  </div>
 </Link>
+
+
+
+
 
         <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
           {navLinks.map((nav) => (
