@@ -1,32 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* Ensure Tailwind CSS is properly configured in your project */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
   font-family: 'Arenq';
-  src: url('./fonts/arenq.otf');
+  src: url('/fonts/arenq.otf');
 }
 
 @font-face {
   font-family: 'Mova';
-  src: url('./fonts/mova.otf');
+  src: url('/fonts/mova.otf' ) /* Ensure the path is correct */
 }
 
 @font-face {
   font-family: 'Beckman';
-  src: url('./fonts/beckman.otf');
+  src: url('/fonts/beckman.otf');
 }
 
 @font-face {
   font-family: 'Overcame Bold';
-  src: url('./fonts/overcame-bold.woff');
+  src: url('/fonts/overcame-bold.woff');
 }
 
 @font-face {
   font-family: 'Overcame Outline';
-  src: url('./fonts/overcame-outline.woff');
+  src: url('/fonts/overcame-outline.woff');
 }
 
 * {
@@ -95,7 +97,7 @@
 
 .glassmorphism {
   background: rgba(20, 20, 20, 0.7);
-  box-shadow: 0 8px 32px 0 rgba(133, 133, 133, 0.37);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);

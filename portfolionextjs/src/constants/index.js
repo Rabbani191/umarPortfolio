@@ -4,25 +4,15 @@ import {
   aws,
   prototyping,
   javascript,
-  typescript,
   html,
-  css,
-  reactjs,
   redux,
-  tailwind,
   nodejs,
   git,
   figma,
-  docker,
-  postgresql,
-  rubyrails,
-  graphql,
   komikult,
   leaderboard,
   math,
   movie,
-  nyeusi,
-  space,
   coverhunt,
   dcc,
   kelhel,
@@ -32,7 +22,7 @@ import {
   nestjs, 
   awslogo, 
 
-} from '../assets';
+} from '../assets/index.js';
 
 export const navLinks = [
 

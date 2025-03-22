@@ -1,3 +1,5 @@
+"use client"; // Ensure this runs only on the client
+
 import { Html, useProgress } from '@react-three/drei';
 
 const Loader = () => {

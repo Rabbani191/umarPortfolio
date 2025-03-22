@@ -1,24 +1,34 @@
+"use client";
+
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { textVariant } from '../../utils/motion';
+import Image from 'next/image'; // ✅ Use Next.js Image component
+
+// Import assets directly
+import bwmap from '../../assets/backgrounds/bw-map.jpeg';
+import worldmap from '../../assets/backgrounds/world-map.png';
+import shaq from '../../assets/personal/shaq.png';
 import { styles } from '../styles';
-import { navLinks } from '../constants';
-import { shaq, bwmap, worldmap } from '../assets';
 
 const Home = () => {
   return (
     <>
       <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
+        <Image
           src={bwmap}
           alt="world map"
-          className="w-full h-full sm:block hidden object-cover"
+          layout="fill"
+          objectFit="cover"
+          className="sm:block hidden"
         />
       </div>
       <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
+        <Image
           src={worldmap}
-          alt="word map"
-          className="w-full h-full sm:hidden block object-cover"
+          alt="world map"
+          layout="fill"
+          objectFit="cover"
+          className="sm:hidden block"
         />
       </div>
       <section
@@ -85,12 +95,14 @@ const Home = () => {
 
         {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
         <div>
-          <img
+          <Image
+            src={shaq}
+            alt="shaquille"
+            width={500}
+            height={900}
             className="absolute bottom-0 ml-[50vw] 
             lg:ml-[65vw] md:ml-[48vw] xmd:ml-[48vw] 2xl:ml-[71vw]
             sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"
-            src={shaq}
-            alt="shaquille"
           />
         </div>
       </section>

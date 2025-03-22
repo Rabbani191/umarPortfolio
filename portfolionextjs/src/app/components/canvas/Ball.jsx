@@ -1,3 +1,5 @@
+'use client'; // Ensures it runs only on the client
+
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
@@ -9,8 +11,8 @@ import {
 } from '@react-three/drei';
 import Loader from '../Loader';
 
-const Ball = (props) => {
-  const [decal] = useTexture([props.imgUrl]);
+const Ball = ({ imgUrl }) => {
+  const [decal] = useTexture([imgUrl]);
 
   return (
     <Float speed={2.5} rotationIntensity={1} floatIntensity={2}>
@@ -39,7 +41,7 @@ const BallCanvas = ({ icon }) => {
   return (
     <Canvas frameloop="always" gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<Loader />}>
-        <OrbitControls enableZoom={false} position0={0} />
+        <OrbitControls enableZoom={false} />
         <Ball imgUrl={icon} />
       </Suspense>
 

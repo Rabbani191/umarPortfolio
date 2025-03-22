@@ -1,14 +1,20 @@
+'use client';
+
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import { motion } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
-import { styles } from '../styles';
-import { experiences } from '../constants';
-import { SectionWrapper } from '../hoc';
-import { download, downloadHover, resume } from '../assets';
-import { textVariant } from '../utils/motion';
+import { experiences } from '../../constants';
+import { SectionWrapper } from '../../hoc';
+import { textVariant } from '../../utils/motion';
+import Image from 'next/image'; // ✅ Use Next.js Image component
+
+// Import assets directly
+import download from '../../assets/icons/download.png';
+import downloadHover from '../../assets/icons/downloadHover.png';
+import resume from '../../assets/icons/resume.png';
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -31,10 +37,12 @@ const ExperienceCard = ({ experience }) => (
     iconStyle={{ background: experience.iconBg }}
     icon={
       <div className="flex justify-center items-center w-full h-full">
-        <img
+        <Image
           src={experience.icon}
           alt={experience.company_name}
-          className="w-[60%] h-[60%] object-contain"
+          width={60}
+          height={60}
+          className="object-contain"
         />
       </div>
     }>
@@ -53,14 +61,10 @@ const ExperienceCard = ({ experience }) => (
 
 const Experience = () => {
   return (
-    <>
+    <div className="-mt-[6rem] px-4 sm:px-6 lg:px-8">
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} sm:pl-16 pl-[2rem]`}>
-          What I've done so far
-        </p>
-        <h2 className={`${styles.sectionHeadText} sm:pl-16 pl-[2rem]`}>
-          Work Experience.
-        </h2>
+        <p className={styles.sectionSubText}>What I've done so far</p>
+        <h2 className={styles.sectionHeadText}>Work Experience.</h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col">
@@ -84,10 +88,12 @@ const Experience = () => {
             iconStyle={{ background: '#333333' }}
             icon={
               <div className="flex justify-center items-center w-full h-full">
-                <img
+                <Image
                   src={resume}
                   alt="resume"
-                  className="w-[45%] h-[45%] object-contain"
+                  width={45}
+                  height={45}
+                  className="object-contain"
                 />
               </div>
             }>
@@ -102,7 +108,7 @@ const Experience = () => {
               ease-in-out"
               onClick={() =>
                 window.open(
-                  'https://drive.google.com/file/d/1YmI9gb7FnRMUX6XfnXMBo72PA7a7G9GC/view?usp=sharing', //paste the link to your resume here
+                  resume,
                   '_blank'
                 )
               }
@@ -117,17 +123,18 @@ const Experience = () => {
                   .setAttribute('src', download);
               }}>
               MY RESUME
-              <img
+              <Image
                 src={download}
                 alt="download"
-                className="download-btn sm:w-[26px] sm:h-[26px] 
-                w-[23px] h-[23px] object-contain"
+                width={26}
+                height={26}
+                className="download-btn object-contain"
               />
             </button>
           </VerticalTimelineElement>
         </VerticalTimeline>
       </div>
-    </>
+    </div>
   );
 };
 
