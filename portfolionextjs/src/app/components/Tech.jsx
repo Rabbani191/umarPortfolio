@@ -1,29 +1,69 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { SectionWrapper } from '../../hoc';
-import { textVariant } from '../../utils/motion';
-import Image from 'next/image'; // ✅ Use Next.js Image component
+import React from 'react';
+import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
+import { SectionWrapper } from "../hoc";
+import { textVariant } from "../utils/motion";
+import { technologies } from "../../constants";
+import { styles } from "../styles";
 
-// Import assets directly
-import tech1 from '../../assets/tech/tech1.png';
-import tech2 from '../../assets/tech/tech2.png';
+// Create Error Boundary for Three.js components
+class ThreeJSErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("ThreeJS Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div className="w-full h-full bg-tertiary rounded-full flex items-center justify-center">{this.props.fallback}</div>;
+    }
+
+    return this.props.children;
+  }
+}
+
+// Import BallCanvas with no SSR
+const BallCanvas = dynamic(
+  () => import("../components/canvas/Ball"),
+  { ssr: false }
+);
 
 const Tech = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <div className="tech-section">
+    <>
       <motion.div variants={textVariant()}>
-        <h2 className="section-title">Technologies</h2>
-        <p className="section-description">
-          My skills
-        </p>
+        <p className={styles.sectionSubTextLight}>My skills</p>
+        <h2 className={styles.sectionHeadTextLight}>Technologies.</h2>
       </motion.div>
-      <div className="tech-gallery">
-        <Image src={tech1} alt="Tech 1" width={100} height={100} className="object-contain" />
-        <Image src={tech2} alt="Tech 2" width={100} height={100} className="object-contain" />
+
+      <div className="flex flex-wrap justify-center gap-10 mt-14">
+        {isMounted && technologies.map((technology) => (
+          <div className="w-28 h-28" key={technology.name}>
+            <ThreeJSErrorBoundary fallback={technology.name}>
+              <BallCanvas icon={technology.icon} />
+            </ThreeJSErrorBoundary>
+          </div>
+        ))}
       </div>
-    </div>
+    </>
   );
 };
 
-export default SectionWrapper(Tech, 'tech');
+export default SectionWrapper(Tech, "");

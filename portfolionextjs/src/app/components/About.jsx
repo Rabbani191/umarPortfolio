@@ -3,10 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { services } from '../../constants';
-import { fadeIn, textVariant } from '../../utils/motion';
-import { SectionWrapper } from '../../hoc';
+import { fadeIn, textVariant } from '../utils/motion';
+import { SectionWrapper } from '../hoc';
 import Image from 'next/image'; // ✅ Use Next.js Image component
-
+import {styles} from '../styles'; // ✅ Import styles
 // // Import assets directly
 // import profileImage from '../../assets/icons/profile.png';
 

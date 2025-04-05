@@ -1,3 +1,4 @@
-import BallCanvas from './BallCanvas';
+import BallCanvas from './Ball';
+import Loader from './Loader';
 
-export { BallCanvas };
+export { BallCanvas, Loader };

@@ -6,7 +6,7 @@ import worldmap from './backgrounds/world-map.png';
 import logo from './logo/logo-black.png';
 import logotext from './logo/logo-text-black.png';
 
-import shaq from './personal/shaq.png';
+import rabbani from './personal/umarRabbani.png';
 
 import backend from './icons/backend.png';
 import aws from './icons/aws.png';
@@ -61,7 +61,7 @@ export {
   worldmap,
   logo,
   logotext,
-  shaq,
+  rabbani,
   backend,
   aws,
   frontend,

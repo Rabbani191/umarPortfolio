@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,26 +11,35 @@ import logo from "../../assets/logo/logo-black.png";
 const Navbar = () => {
   const [active, setActive] = useState("about");
   const [toggle, setToggle] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const router = useRouter();
 
-  const handleLinkClick = (title) => {
-    setActive(title);
-    setToggle(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
-    const section = document.getElementById(title);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleLinkClick = useCallback(
+    (title) => {
+      setActive(title);
+      setToggle(false);
+      
+      const section = document.getElementById(title);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
 
-    // Update URL without hash
-    if (title === "home") {
-      router.push("/");
-    } else {
-      router.push(`/${title}`);
-    }
-  };
+      if (title === "home") {
+        router.push("/");
+      } else {
+        router.push(`/${title}`);
+      }
+    },
+    [router]
+  );
 
   useEffect(() => {
+    if (!hydrated) return;
+    
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
@@ -44,30 +53,25 @@ const Navbar = () => {
             scrollY >= sectionTop - sectionHeight / 3 &&
             scrollY < sectionTop + sectionHeight - sectionHeight / 3
           ) {
-            if (nav.id === "home") {
-              if (active !== "") {
-                setActive("");
-                router.push("/");
-              }
-            } else {
-              if (active !== nav.id) {
-                setActive(nav.id);
-                router.push(`/${nav.id}`);
-              }
+            if (active !== nav.id) {
+              setActive(nav.id);
+              router.push(`/${nav.id}`);
             }
           }
         }
       });
 
-      if (scrollY === 0) {
-        setActive("");
+      if (scrollY === 0 && active !== "") {
+        setActive("home");
         router.push("/");
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [active, router]);
+  }, [active, router, hydrated]);
+
+  if (!hydrated) return null;
 
   return (
     <nav className="w-full flex items-center py-1 fixed top-0 z-20 bg-flashWhite sm:opacity-[0.97] xxs:h-[8vh]">
@@ -75,20 +79,10 @@ const Navbar = () => {
         <Link
           href="/"
           className="flex items-center gap-2"
-          onClick={() => {
-            setActive("about");
-            window.scrollTo(0, 0);
-            router.push("/");
-          }}
+          onClick={() => handleLinkClick("home")}
         >
           <div className="flex items-center space-x-3">
-            <Image
-              src={logo}
-              alt="logo"
-              width={100}
-              height={60}
-              className="object-contain"
-            />
+            <Image src={logo} alt="logo" width={100} height={60} className="object-contain" />
             <h1 className="font-black text-battleGray lg:text-[40px] sm:text-[28px] xs:text-[22px] text-[18px] lg:leading-none leading-none">
               RABBANI
             </h1>
@@ -121,7 +115,7 @@ const Navbar = () => {
                   width={22}
                   height={22}
                   className="object-contain cursor-pointer"
-                  onClick={() => setToggle(!toggle)}
+                  onClick={() => setToggle(false)}
                 />
               </div>
               <ul className="list-none flex flex-col -gap-[1rem] items-start justify-end mt-[10rem] -ml-[35px]">
@@ -145,7 +139,7 @@ const Navbar = () => {
               width={34}
               height={34}
               className="object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
+              onClick={() => setToggle(true)}
             />
           )}
         </div>

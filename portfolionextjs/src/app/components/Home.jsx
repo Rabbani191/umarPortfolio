@@ -1,18 +1,19 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { textVariant } from '../../utils/motion';
-import Image from 'next/image'; // ✅ Use Next.js Image component
+import { motion } from "framer-motion";
+import { textVariant } from "../utils/motion";
+import Image from "next/image"; 
 
 // Import assets directly
-import bwmap from '../../assets/backgrounds/bw-map.jpeg';
-import worldmap from '../../assets/backgrounds/world-map.png';
-import shaq from '../../assets/personal/shaq.png';
-import { styles } from '../styles';
+import bwmap from "../../assets/backgrounds/bw-map.jpeg";
+import worldmap from "../../assets/backgrounds/world-map.png";
+import rabbani from "../../assets/personal/umarRabbani.png";
+import { styles } from "../styles";
 
 const Home = () => {
   return (
     <>
+      {/* Background Images */}
       <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
         <Image
           src={bwmap}
@@ -31,53 +32,61 @@ const Home = () => {
           className="sm:hidden block"
         />
       </div>
+
+      {/* Hero Section */}
       <section
         className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
-        sm:bg-hero bg-hero-mobile overflow-hidden">
+        sm:bg-hero bg-hero-mobile overflow-hidden"
+      >
         <div
           className={`absolute inset-0 sm:top-[250px] top-[150px] 
           lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
           max-w-7xl mx-auto flex flex-row items-start
-          justify-between gap-3`}>
+          justify-between gap-3`}
+        >
+          {/* Left Line & Dot */}
           <div className="flex flex-col justify-center items-center mt-5 ml-3">
             <div className="w-5 h-5 rounded-full bg-[#0a0a0a] sm:hidden" />
             <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
           </div>
+
+          {/* Main Text Content */}
           <div className="flex flex-col items-center text-center">
-  <div className="flex w-full justify-start"> {/* Change justify-end to justify-start */}
-    <h2 className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
-      Hi, I'm
-    </h2>
-  </div>
+            <div className="flex w-full justify-start">
+              <h2 className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
+                Hi, I'm
+              </h2>
+            </div>
+            <span className="sm:text-battleGray sm:text-[90px] text-eerieBlack text-[50px] font-mova font-extrabold uppercase whitespace-nowrap">
+              Umar Rabbani
+            </span>
 
-  <span className="sm:text-battleGray sm:text-[90px] text-eerieBlack text-[50px] font-mova font-extrabold uppercase whitespace-nowrap">
-    Umar Rabbani
-  </span>
+            <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
+              <span className="block">Full Stack Dev</span>
+              <span className="block">Node.js, Angular, React & AWS</span>
+              <span className="block">Fintech, WMS, E-com, LMS, Health</span>
+            </p>
+          </div>
 
-  <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-  <span className="block">Full Stack Dev</span>
-  <span className="block ">Node.js, Angular, React & AWS</span>
-  <span className="block">Fintech, WMS, E-com, LMS, Health</span>
-</p>
-</div>
-
-
-
-          <div
-            className="w-screen flex flex-col items-start 
-            justify-center sm:-ml-[3rem] xxs:mt-4"></div>
-
-          <div></div>
+          <div className="w-screen flex flex-col items-start justify-center sm:-ml-[3rem] xxs:mt-4"></div>
         </div>
 
-        <div
-          className="absolute xs:bottom-10 bottom-32 w-full 
-          flex justify-center items-center">
-          <a href="#about">
+        {/* Scroll Indicator */}
+        <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+          <button
+            onClick={() => {
+              const aboutSection = document.querySelector("#about");
+              if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            aria-label="Scroll to About section"
+          >
             <div
               className="w-[35px] h-[64px] rounded-3xl border-4 
-            border-french border-dim flex
-            justify-center items-start p-2">
+              border-french border-dim flex
+              justify-center items-start p-2 cursor-pointer"
+            >
               <motion.div
                 animate={{
                   y: [0, 24, 0],
@@ -85,21 +94,19 @@ const Home = () => {
                 transition={{
                   duration: 1.5,
                   repeat: Infinity,
-                  repeatType: 'loop',
+                  repeatType: "loop",
                 }}
                 className="w-3 h-3 rounded-full bg-taupe mb-1"
               />
             </div>
-          </a>
+          </button>
         </div>
 
-        {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
+        {/* Profile Image */}
         <div>
           <Image
-            src={shaq}
-            alt="shaquille"
-            width={500}
-            height={900}
+            src={rabbani}
+            alt="Umar Rabbani"
             className="absolute bottom-0 ml-[50vw] 
             lg:ml-[65vw] md:ml-[48vw] xmd:ml-[48vw] 2xl:ml-[71vw]
             sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"

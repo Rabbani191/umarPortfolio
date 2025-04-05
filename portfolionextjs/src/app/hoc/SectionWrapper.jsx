@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { staggerContainer } from '../utils/motion'; // Adjust the path as per your structure
+import {styles} from '../styles'; // Adjust the path as per your structure
 const SectionWrapper = (Component, idName) => {
   return function HOC() {
     return (
