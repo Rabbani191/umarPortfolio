@@ -169,7 +169,7 @@ const experiences = [
     date: 'JUL 2019 - MAY 2023',
   },
   {
-    title: 'Full Stack Developer',
+    title: 'Technical Manager',
     company_name: 'SSBCIVI',
     icon: dcc,
     iconBg: '#333333',
